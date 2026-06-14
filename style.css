@@ -1,0 +1,233 @@
+/* Base Resets & Variables */
+:root {
+    --bg-dark: #0a0a0c;
+    --surface: #141417;
+    --accent: #ff3366;
+    --text-main: #f5f5f7;
+    --text-muted: #888888;
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(10, 10, 12, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .active-link {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #1a1a1f, var(--bg-dark));
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: #ff1a53;
+    box-shadow: 0 0 15px rgba(255, 51, 102, 0.5);
+}
+
+/* Grids & Cards */
+.categories-section, .products-section {
+    padding: 60px 50px;
+}
+
+.section-title, .shop-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.shop-header h1 {
+    font-size: 2.5rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    text-decoration: none;
+    color: var(--text-main); /* This makes the text white/off-white instead of blue */
+}
+
+.card-overlay h3 {
+    color: #ffffff; /* Forces the text to be pure white */
+    text-transform: uppercase; /* Optional: makes it look a bit more premium */
+    letter-spacing: 2px;
+}
+
+.category-card, .product-card {
+    background: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid #222;
+}
+
+.category-card:hover, .product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.category-card img, .product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-info p {
+    color: var(--accent);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Toggle Buttons */
+.toggle-container {
+    margin-top: 20px;
+    display: inline-flex;
+    background: var(--surface);
+    border-radius: 30px;
+    padding: 5px;
+    border: 1px solid #333;
+}
+
+.toggle-btn {
+    background: transparent;
+    color: var(--text-main);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.toggle-btn.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* Utilities & Animations */
+.hidden-on-load {
+    display: none;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer {
+    text-align: center;
+    padding: 50px;
+    background: var(--surface);
+    border-top: 1px solid #222;
+    margin-top: 50px;
+}
+
+.footer p {
+    color: var(--text-muted);
+    margin-top: 10px;
+}
